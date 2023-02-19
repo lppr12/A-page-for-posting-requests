@@ -247,7 +247,8 @@ var messages = {};
 
 
 $(chatIcon).click(function() {
-  $(chatPopup).toggleClass("chat-popup-open");
+  if(checkacc()===true){
+  $(chatPopup).toggleClass("chat-popup-open");}
 });
 
 $(closeBtn).click(function() {
@@ -294,6 +295,7 @@ messageInput.addEventListener('keydown', function(event) {
 });
 
 function openchat(firmName) {
+  if(checkacc()===true){
   $(chatPopup).toggleClass("chat-popup-open");
   chatHeader.innerText = 'Chat with ' + firmName;
   firmId = getFirmId(firmName);
@@ -308,6 +310,7 @@ function openchat(firmName) {
       messagesList.appendChild(messageEl);
     });
   }
+}
 }
 
 function getFirmId(firmName) {
@@ -339,77 +342,12 @@ $(closeBtn).click(function() {
 
 
 function openfeed(wfeed) {
-    if(wfeed===null)
-    {
-      // create the feedback form popup
-    const popup = window.open("", "Feedback Form", "width=400,height=500");
+     if(checkacc()===true){
+       // create the feedback form popup
+    const popup2 = window.open("", "Feedback Form", "width=400,height=500");
   
     // add HTML content to the popup
-    popup.document.write(`
-      <html>
-        <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">  
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-          <title>Feedback Form</title>
-        </head>
-        <body>
-          <div class="container py-4">
-            <h1 class="mb-4 text-warning bg-dark text-center">Feedback Form</h1>
-            <form id="feedback-form">
-              <div class="mb-3">
-                <label for="namef" class="form-label">Name:</label>
-                <input type="text" id="namef" name="namef" class="form-control border-success" required>
-              </div>
-              <div class="mb-3">
-                <label for="emailf" class="form-label">Email:</label>
-                <input type="email" id="emailf" name="emailf" class="form-control border-success" required>
-              </div>
-              <div class="mb-3">
-                <label for="commentsf" class="form-label">Feedback:</label>
-                <textarea id="commentsf" name="commentsf" class="form-control border-success" required></textarea>
-              </div>
-              <div class="text-center">
-              <button type="submitf" class="btn btn-outline-warning text-center shadow">Submit</button>
-              </div>
-            </form>
-          </div>
-        </body>
-      </html>
-    `);
-  
-    // add an event listener to the form submit button
-    const form = popup.document.getElementById("feedback-form");
-    form.addEventListener("submitf", function(event) {
-      // prevent the default form submission behavior
-      event.preventDefault();
-  
-      // get the form data
-      const namef = form.elements["namef"].value;
-      const emailf = form.elements["emailf"].value;
-      const commentsf = form.elements["commentsf"].value;
-  
-      // get the existing feedbacks from local storage, or initialize an empty array
-      const feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
-  
-      // add the new feedback to the array
-      feedbacks.push({ namef, emailf, commentsf});
-  
-      // store the updated feedbacks array in local storage
-      localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
-  
-      // close the popup
-      popup.close();
-    });
-    }
-    else{
-      // create the feedback form popup
-    const popup = window.open("", "Feedback Form", "width=400,height=500");
-  
-    // add HTML content to the popup
-    popup.document.write(`
+    popup2.document.write(`
       <html>
         <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -424,6 +362,65 @@ function openfeed(wfeed) {
             <h1 class="mb-4 text-warning bg-dark text-center">Feedback Form For ${wfeed}</h1>
             <form id="feedback-form">
               <div class="mb-3">
+              <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="rating-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Rate us
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="rating-dropdown">
+                <li>
+                  <input class="form-check-input" type="radio" name="rating" id="rating1" value="1">
+                  <label class="form-check-label" for="rating1">
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star text-muted"></span>
+                    <span class="bi bi-star text-muted"></span>
+                    <span class="bi bi-star text-muted"></span>
+                    <span class="bi bi-star text-muted"></span>
+                  </label>
+                </li>
+                <li>
+                  <input class="form-check-input" type="radio" name="rating" id="rating2" value="2">
+                  <label class="form-check-label" for="rating2">
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star text-muted"></span>
+                    <span class="bi bi-star text-muted"></span>
+                    <span class="bi bi-star text-muted"></span>
+                  </label>
+                </li>
+                <li>
+                  <input class="form-check-input" type="radio" name="rating" id="rating3" value="3">
+                  <label class="form-check-label" for="rating3">
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star text-muted"></span>
+                    <span class="bi bi-star text-muted"></span>
+                  </label>
+                </li>
+                <li>
+                  <input class="form-check-input" type="radio" name="rating" id="rating4" value="4">
+                  <label class="form-check-label" for="rating4">
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star text-muted"></span>
+                  </label>
+                </li>
+                <li>
+                  <input class="form-check-input" type="radio" name="rating" id="rating5" value="5">
+                  <label class="form-check-label" for="rating5">
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                    <span class="bi bi-star-fill text-warning"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+              </div>
+              <div class="mb-3">
                 <label for="namef" class="form-label">Name:</label>
                 <input type="text" id="namef" name="namef" class="form-control border-success" required>
               </div>
@@ -436,7 +433,7 @@ function openfeed(wfeed) {
                 <textarea id="commentsf" name="commentsf" class="form-control border-success" required></textarea>
               </div>
               <div class="text-center">
-              <button type="submitf" class="btn btn-outline-warning text-center shadow">Submit</button>
+              <button type="submitf" id="submitfeed" class="btn btn-outline-warning text-center shadow">Submit</button>
               </div>
             </form>
           </div>
@@ -445,27 +442,32 @@ function openfeed(wfeed) {
     `);
   
     // add an event listener to the form submit button
-    const form = popup.document.getElementById("feedback-form");
-    form.addEventListener("submitf", function(event) {
-      // prevent the default form submission behavior
-      event.preventDefault();
-  
-      // get the form data
-      const namef = form.elements["namef"].value;
-      const emailf = form.elements["emailf"].value;
-      const commentsf = form.elements["commentsf"].value;
-  
-      // get the existing feedbacks from local storage, or initialize an empty array
-      const feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
-  
-      // add the new feedback to the array
-      feedbacks.push({ namef, emailf, commentsf});
-  
-      // store the updated feedbacks array in local storage
-      localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
-  
-      // close the popup
-      popup.close();
-    });
-    }
+    const form = popup2.document.getElementById("feedback-form");
+    const submitButtonf = popup2.document.getElementById("submitfeed");
+submitButtonf.addEventListener("click", function(event) {
+  // prevent the default form submission behavior
+  event.preventDefault();
+
+  // get the form data
+  const namef = form.elements["namef"].value;
+  const emailf = form.elements["emailf"].value;
+  const commentsf = form.elements["commentsf"].value;
+  const selectedValue = form.elements["rating-dropdown"].value;
+
+  // get the existing feedbacks from local storage, or initialize an empty array
+  const feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+  // add the new feedback to the array
+  feedbacks.push({ namef, emailf, commentsf, selectedValue });
+
+  // store the updated feedbacks array in local storage
+  localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+
+  // close the popup
+  popup2.close();
+});
+    
+     }
+     else{}
+ 
   }
