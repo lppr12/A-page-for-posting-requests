@@ -1,0 +1,236 @@
+  
+body{
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADICAMAAAA9W+hXAAAAA1BMVEX/+vqq2RsCAAAANElEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAN1+AABVhDU2QAAAABJRU5ErkJggg==");
+}
+.d1 {
+    background-image:linear-gradient(rgb(196, 13, 13)40%,rgb(0, 213, 255));
+    height: 100%;
+    width: 100%;
+    
+}
+#p2{
+    text-align: center;
+    font-weight: 700;
+    font-family: serif;
+}
+.n1 {
+  
+    padding-left: 10px;
+    padding-top: 5px;
+    color:rgba(5, 251, 13,0.879);
+    accent-color:black;
+    font-size: 2rem;
+    font-family: serif;
+    text-decoration:underline;
+    position: relative;
+}
+
+#search {
+    color:rgb(5, 1, 1);
+    vertical-align: middle;
+    font-weight:bolder;
+
+}
+.boldsi {
+font-weight: bolder;
+}
+#bt10 {
+    color: whitesmoke;
+}
+#addbutt {
+    color: greenyellow;
+}
+#plusicon {
+    color: salmon;
+}
+
+#sidebar {
+    height: 100vh;
+}
+.colside{
+    background-image:url("https://static.vecteezy.com/system/resources/thumbnails/007/152/272/small/white-ornament-islamic-pattern-background-free-vector.jpg");
+}
+.border-end {
+    background-color: rgba(0, 0, 0,0);
+}  
+.sidebar-heading{
+    color: rgb(96, 0, 206);
+    background-color: rgba(253, 6, 6,0);
+    font-size: larger;
+}
+.list-group-item{
+    background-color: rgba(69, 251, 3, 0);
+    border: 0;
+}
+.side2hli:hover,
+.side1hli:hover {
+    background-image:linear-gradient(rgb(0, 213, 255),rgb(196, 13, 13)70%);
+    color:rgb(27, 239, 12) ;
+    font-weight: bolder;
+}
+.side2h {
+    color: salmon;
+    background-color: rgba(2, 47, 109, 0);
+    font-size: larger;
+}
+.side2hli  {
+    background-color: rgba(217, 38, 6, 0);
+}
+#sidebar{
+    background-color: rgba(0, 0, 0, 0);
+}
+.chaticon{
+    color: rgba(0, 121, 242, 1);
+    
+}
+.chaticon:hover  {
+    color: rgb(93, 251, 8);
+  }
+.staricon:hover:before{
+    content: "\F587";
+    color: gold;
+}
+
+
+
+
+
+
+
+
+/* Chat icon styles */
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .chat-icon i {
+    font-size: 24px;
+  }
+  
+  .chat-popup {
+    visibility: hidden;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    max-width: 300px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  /* Add the "chat-popup-open" class to show the chat popup */
+  .chat-popup-open {
+    visibility: visible;
+    opacity: 1;
+    bottom: 130px;
+  }
+  
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .chat-header h3 {
+    margin: 0;
+  }
+  
+  .close {
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+  }
+  
+  .chat-body {
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px 20px;
+  }
+  
+  .chat-footer {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #eee;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .chat-footer input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sendbutton {
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .sendbutton:hover {
+    background-color: #5901f1;
+  }
+  
+  .clbut:hover {
+    color: #de0303;
+  }
+
+
+
+
+  .cfot {
+    background-color:black;
+  }
+
+  .uname{
+    font-weight: bolder;
+    font-style:italic;
+  }
+  .desc,.priceee,.cate{
+    font-weight:600;
+  }
+  .headingname{
+    font-weight: bolder;
+    color: #fbeefa;
+    accent-color:rgb(215, 12, 219) ;
+    text-transform: capitalize;
+    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsgRa4hfiuHev_rOcjinalXJj7shQUnEDwwO-EtN2zObiuhaVwkvv4VcIrsZ17hylBcOk&usqp=CAU");
+  }
+  .desc {
+    font-family:sans-serif;
+    color: rgb(3, 3, 3);
+  }
+  .priceee {
+    font-family:Verdana;
+    color: rgb(212, 11, 52);
+  }
+  .cate{
+    font-size: small;
+    background-color: aliceblue;
+    color: rgb(0, 0, 0);
+  }
+
+  .navbar-nav{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif
+  }

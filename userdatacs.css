@@ -1,0 +1,19 @@
+.c1{
+    margin-top: 50px;
+    width: 500px;
+    border: 3px dashed salmon;
+    height: 600px;
+}
+.c2{
+    margin-top: 50px;
+    width: 500px;
+    border: 3px dashed salmon;
+    height: 680px;
+}
+#i1{
+    text-align: center;
+}
+a{
+    color:rgb(255, 2, 204);
+    font-size:110%;
+}
